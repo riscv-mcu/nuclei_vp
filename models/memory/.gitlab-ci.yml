@@ -1,0 +1,22 @@
+# Templates
+.job_unix_makefile: &job_unix_makefile
+  before_script:
+    - mkdir greenlib-prefix
+    - git clone https://git.greensocs.com/greenlib/greenlib.git greenlib
+    - cd greenlib
+    - cmake . -DCMAKE_INSTALL_PREFIX=`pwd`/../greenlib-prefix
+    - make
+    - make install
+    - cd ..
+  script:
+    - cmake . -DGREENLIB_PREFIX=`pwd`/greenlib-prefix -DSYSTEMC_PREFIX=$SYSTEMC_HOME_2_3_1
+    - make
+    - make test
+
+# Jobs
+## Linux
+Linux:
+  variables:
+    CC: "gcc"
+    CXX: "g++"
+  <<: *job_unix_makefile

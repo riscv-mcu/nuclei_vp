@@ -1,0 +1,23 @@
+*~
+._*
+
+### OSX ###
+.DS_Store
+.AppleDouble
+.LSOverride
+
+### CMake ###
+CMakeCache.txt
+CMakeFiles
+Makefile
+cmake_install.cmake
+install_manifest.txt
+CPackSourceConfig.cmake
+CPackConfig.cmake
+CTestTestfile.cmake
+Testing/
+
+# Objects
+test/simplememory-test
+test/dualportmemory-test
+test/byteenable-test

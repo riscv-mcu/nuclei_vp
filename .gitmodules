@@ -1,0 +1,9 @@
+[submodule "libs/greenlib"]
+	path = libs/greenlib
+	url = ../greenlib.git
+[submodule "libs/qbox"]
+	path = libs/qbox
+	url = ../qemu.git
+[submodule "libs/tlm2c"]
+	path = libs/tlm2c
+	url = ../tlm2c.git
