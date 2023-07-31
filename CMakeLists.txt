@@ -181,8 +181,8 @@ link_directories(${CMAKE_BINARY_DIR}/libs/qbox.build/)
 install(FILES ${CMAKE_BINARY_DIR}/libs/qbox.build/libqbox-riscv64-softmmu${CMAKE_SHARED_LIBRARY_SUFFIX} DESTINATION lib)
 
 ### Toplevel ###
-add_executable(aarch64_toplevel src/aarch64_toplevel.cpp)
-add_dependencies(aarch64_toplevel
+add_executable(riscv64_toplevel src/riscv64_toplevel.cpp)
+add_dependencies(riscv64_toplevel
 			  simplecpu
 			  qbox
 			#   nvdla
@@ -192,7 +192,7 @@ get_filename_component(REAL_SYSC_LIB ${SystemC_LIBRARIES} REALPATH)
 install(FILES ${SystemC_LIBRARIES} DESTINATION lib)
 install(FILES ${REAL_SYSC_LIB} DESTINATION lib)
 
-target_link_libraries(aarch64_toplevel  ${SystemC_LIBRARIES}
+target_link_libraries(riscv64_toplevel  ${SystemC_LIBRARIES}
 				${LUA_LIBRARIES}
                 qbox-riscv64-softmmu
 				greenreg
@@ -205,13 +205,13 @@ target_link_libraries(aarch64_toplevel  ${SystemC_LIBRARIES}
 )
 
 # if(AWS_FPGA_PRESENT)
-#     add_dependencies(aarch64_toplevel fpga_sc_wrapper)
-#     target_link_libraries(aarch64_toplevel fpga_sc_wrapper)
-#     set_target_properties(aarch64_toplevel PROPERTIES COMPILE_FLAGS "-std=c++11 -Wno-deprecated-declarations -DCONFIG_LOGLEVEL=4")
+#     add_dependencies(riscv64_toplevel fpga_sc_wrapper)
+#     target_link_libraries(riscv64_toplevel fpga_sc_wrapper)
+#     set_target_properties(riscv64_toplevel PROPERTIES COMPILE_FLAGS "-std=c++11 -Wno-deprecated-declarations -DCONFIG_LOGLEVEL=4")
 # endif()
 
-# add_dependencies(aarch64_toplevel cosim_sc_wrapper)
-# target_link_libraries(aarch64_toplevel cosim_sc_wrapper)
-# set_target_properties(aarch64_toplevel PROPERTIES COMPILE_FLAGS "-std=c++11 -Wno-deprecated-declarations -DCONFIG_LOGLEVEL=4")
+# add_dependencies(riscv64_toplevel cosim_sc_wrapper)
+# target_link_libraries(riscv64_toplevel cosim_sc_wrapper)
+# set_target_properties(riscv64_toplevel PROPERTIES COMPILE_FLAGS "-std=c++11 -Wno-deprecated-declarations -DCONFIG_LOGLEVEL=4")
 
-install(TARGETS aarch64_toplevel DESTINATION bin)
+install(TARGETS riscv64_toplevel DESTINATION bin)
