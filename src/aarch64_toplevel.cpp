@@ -50,7 +50,7 @@
 
 #include "SimpleCPU/simpleCPU.h"
 #include "SimpleMemory/simpleMemory.h"
-#include "nvdla/nvdla_top.h"
+// #include "nvdla/nvdla_top.h"
 #include "log/log.h"
 
 #include <pthread.h>
@@ -93,8 +93,8 @@ static int aws_fpga_init(const aws_fpga_info_t &aws_fpga_info, aws_fpga_handle_t
 static int aws_fpga_cleanup(const aws_fpga_handle_t &aws_fpga_handle);
 #endif
 
-#include "cosim_sc_wrapper/nvdla_cosim_sc_wrapper.h"
-#include "cosim_sc_wrapper/extmem_cosim_sc_wrapper.h"
+// #include "cosim_sc_wrapper/nvdla_cosim_sc_wrapper.h"
+// #include "cosim_sc_wrapper/extmem_cosim_sc_wrapper.h"
 #include "stdlib.h"
 #include "unistd.h"
 
@@ -430,7 +430,7 @@ int sc_main(int argc, char **argv)
 #else
 void *ram;
 if (cosim_en) {
-    ram = new extmem_cosim_sc_wrapper("ram");
+    // ram = new extmem_cosim_sc_wrapper("ram");
 } else {
     ram = new Memory<32>("ram");
     if (dmi_en)
@@ -491,7 +491,7 @@ if (cosim_en) {
     }
 #else
 if (cosim_en) {
-    router->init_socket((reinterpret_cast<extmem_cosim_sc_wrapper *>(ram))->target_port);
+    // router->init_socket((reinterpret_cast<extmem_cosim_sc_wrapper *>(ram))->target_port);
 } else {
     router->init_socket((reinterpret_cast<Memory<32> *>(ram))->target_port);
 }
