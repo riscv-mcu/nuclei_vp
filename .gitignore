@@ -40,4 +40,4 @@ fpga/aws-fpga/common/trace_player/test/trace_player_dump_mem*.dat
 fpga/aws-fpga/common/trace_player/test/trace_parser_command.c
 fpga/aws-fpga/common/trace_player/test/trace_player_test
 fpga/aws-fpga/cl_nvdla/verif/regression/regression_*
-*.build
+*.build*
