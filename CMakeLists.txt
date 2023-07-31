@@ -77,6 +77,7 @@ endif()
 # endif()
 
 add_subdirectory(libs/greenlib)
+
 include_directories(libs/greenlib/greencontrol/include
 		    libs/greenlib/greenmemory/include
 		    libs/greenlib/greenscript/include
@@ -169,7 +170,7 @@ ExternalProject_Add(qbox
 	CONFIGURE_COMMAND ${CMAKE_SOURCE_DIR}/libs/qbox/configure --disable-werror --disable-pa --disable-linux-aio --disable-rbd  --disable-vnc --disable-sdl --disable-sdl-image --target-list=riscv64-softmmu --qbox --library  ${QBOX_DEBUG_BUILD}  --with-tlm2c=${CMAKE_BINARY_DIR}/libs/tlm2c.build --prefix=${CMAKE_BINARY_DIR}/libs/qbox.build --disable-pie 
 	PREFIX ${CMAKE_BINARY_DIR}/libs/qbox.build
 	BUILD_COMMAND $(MAKE)
-)	
+)
 ExternalProject_Add_Step(qbox force-build
             DEPENDEES update
             DEPENDERS build
