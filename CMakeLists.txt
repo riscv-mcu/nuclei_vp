@@ -59,22 +59,22 @@ else()
     message( FATAL_ERROR "LUA library not found." )
 endif()
 
-find_package(NvdlaCmod)
-if(NVDLA_CMOD_FOUND)
-    link_directories(${NVDLA_CMOD_LIBRARY_DIR})
-else()
-    message( FATAL_ERROR "NVDLA CMOD library not found." )
-endif()
+# find_package(NvdlaCmod)
+# if(NVDLA_CMOD_FOUND)
+#     link_directories(${NVDLA_CMOD_LIBRARY_DIR})
+# else()
+#     message( FATAL_ERROR "NVDLA CMOD library not found." )
+# endif()
 
-if(AWS_FPGA_PRESENT)
-    find_package(AWSSDK)
-    if(AWSSDK_FOUND)
-        include_directories(${AWSSDK_INCLUDE_DIRS})
-        link_directories(${AWSSDK_LIBRARY_DIRS})
-    else()
-        message( FATAL_ERROR "AWSSDK library not found." )
-    endif()
-endif()
+# if(AWS_FPGA_PRESENT)
+#     find_package(AWSSDK)
+#     if(AWSSDK_FOUND)
+#         include_directories(${AWSSDK_INCLUDE_DIRS})
+#         link_directories(${AWSSDK_LIBRARY_DIRS})
+#     else()
+#         message( FATAL_ERROR "AWSSDK library not found." )
+#     endif()
+# endif()
 
 add_subdirectory(libs/greenlib)
 include_directories(libs/greenlib/greencontrol/include
@@ -112,47 +112,47 @@ set(GREENLIB_INCLUDE_DIRS ${CMAKE_SOURCE_DIR}/libs/greenlib/greencontrol/include
 
 add_subdirectory(libs/tlm2c libs/tlm2c.build/lib)
 include_directories(libs/tlm2c/include)
-link_directories(${CMAKE_SOURCE_DIR}/libs/tlm2c.build)
+link_directories(${CMAKE_BINARY_DIR}/libs/tlm2c.build)
 file(COPY libs/tlm2c/include DESTINATION libs/tlm2c.build/)
 
 set(TLM2C_FOUND TRUE)
-set(TLM2C_LIBRARY_DIRS ${CMAKE_SOURCE_DIR}/libs/tlm2c.build)
-set(TLM2C_INCLUDE_DIRS ${CMAKE_SOURCE_DIR}/libs/tlm2c/include)
+set(TLM2C_LIBRARY_DIRS ${CMAKE_BINARY_DIR}/libs/tlm2c.build)
+set(TLM2C_INCLUDE_DIRS ${CMAKE_BINARY_DIR}/libs/tlm2c/include)
 
 add_subdirectory(libs/log libs/log.build/lib)
 include_directories(libs/log/include)
-link_directories(${CMAKE_SOURCE_DIR}/libs/log.build)
+link_directories(${CMAKE_BINARY_DIR}/libs/log.build)
 file(COPY libs/log/include DESTINATION libs/log.build/)
 
 set(LOG_FOUND TRUE)
-set(LOG_LIBRARY_DIRS ${CMAKE_SOURCE_DIR}/libs/log.build)
-set(LOG_INCLUDE_DIRS ${CMAKE_SOURCE_DIR}/libs/log/include)
+set(LOG_LIBRARY_DIRS ${CMAKE_BINARY_DIR}/libs/log.build)
+set(LOG_INCLUDE_DIRS ${CMAKE_BINARY_DIR}/libs/log/include)
 
 add_subdirectory(models/cpu models/cpu.build)
 include_directories(models/cpu/include)
-link_directories(${CMAKE_SOURCE_DIR}/models/cpu.build)
+link_directories(${CMAKE_BINARY_DIR}/models/cpu.build)
 
 set(SIMPLECPU_FOUND TRUE)
-set(SIMPLECPU_LIBRARY_DIRS ${CMAKE_SOURCE_DIR}/models/cpu.build)
-set(SIMPLECPU_INCLUDE_DIRS ${CMAKE_SOURCE_DIR}/models/cpu/include)
+set(SIMPLECPU_LIBRARY_DIRS ${CMAKE_BINARY_DIR}/models/cpu.build)
+set(SIMPLECPU_INCLUDE_DIRS ${CMAKE_BINARY_DIR}/models/cpu/include)
 
 add_subdirectory(models/memory models/memory.build)
 include_directories(models/memory/include)
-link_directories(${CMAKE_SOURCE_DIR}/models/memory.build)
+link_directories(${CMAKE_BINARY_DIR}/models/memory.build)
 
-add_subdirectory(models/nvdla models/nvdla.build)
-include_directories(models/nvdla/include)
-link_directories(${CMAKE_SOURCE_DIR}/models/nvdla.build)
+# add_subdirectory(models/nvdla models/nvdla.build)
+# include_directories(models/nvdla/include)
+# link_directories(${CMAKE_BINARY_DIR}/models/nvdla.build)
 
-if(AWS_FPGA_PRESENT)
-    add_subdirectory(fpga/aws-fpga/fpga_sc_wrapper fpga/aws-fpga/fpga_sc_wrapper.build)
-    include_directories(fpga/aws-fpga/fpga_sc_wrapper/include)
-    link_directories(${CMAKE_SOURCE_DIR}/fpga/aws-fpga/fpga_sc_wrapper.build)
-endif()
+# if(AWS_FPGA_PRESENT)
+#     add_subdirectory(fpga/aws-fpga/fpga_sc_wrapper fpga/aws-fpga/fpga_sc_wrapper.build)
+#     include_directories(fpga/aws-fpga/fpga_sc_wrapper/include)
+#     link_directories(${CMAKE_BINARY_DIR}/fpga/aws-fpga/fpga_sc_wrapper.build)
+# endif()
 
-add_subdirectory(fpga/aws-fpga/cosim_sc_wrapper fpga/aws-fpga/cosim_sc_wrapper.build)
-include_directories(fpga/aws-fpga/cosim_sc_wrapper/include)
-link_directories(${CMAKE_SOURCE_DIR}/fpga/aws-fpga/cosim_sc_wrapper.build)
+# add_subdirectory(fpga/aws-fpga/cosim_sc_wrapper fpga/aws-fpga/cosim_sc_wrapper.build)
+# include_directories(fpga/aws-fpga/cosim_sc_wrapper/include)
+# link_directories(${CMAKE_BINARY_DIR}/fpga/aws-fpga/cosim_sc_wrapper.build)
 
 ### QBOX ###
 if (CMAKE_BUILD_TYPE MATCHES Debug)
@@ -162,12 +162,12 @@ else ()
 endif ()
 ExternalProject_Add(qbox
 	SOURCE_DIR ${CMAKE_SOURCE_DIR}/libs/qbox
-	INSTALL_DIR ${CMAKE_SOURCE_DIR}/libs/qbox.build
-	BINARY_DIR ${CMAKE_SOURCE_DIR}/libs/qbox.build
-	TMP_DIR ${CMAKE_SOURCE_DIR}/libs/qbox.build/tmp
-	STAMP_DIR ${CMAKE_SOURCE_DIR}/libs/qbox.build/stampdir
-	CONFIGURE_COMMAND ${CMAKE_SOURCE_DIR}/libs/qbox/configure --disable-werror --disable-pa --disable-linux-aio --disable-rbd  --disable-vnc --disable-sdl --disable-sdl-image --target-list=riscv64-softmmu --qbox --library  ${QBOX_DEBUG_BUILD}  --with-tlm2c=${CMAKE_SOURCE_DIR}/libs/tlm2c.build --prefix=${CMAKE_SOURCE_DIR}/libs/qbox.build --disable-pie 
-	PREFIX ${CMAKE_SOURCE_DIR}/libs/qbox.build
+	INSTALL_DIR ${CMAKE_BINARY_DIR}/libs/qbox.build
+	BINARY_DIR ${CMAKE_BINARY_DIR}/libs/qbox.build
+	TMP_DIR ${CMAKE_BINARY_DIR}/libs/qbox.build/tmp
+	STAMP_DIR ${CMAKE_BINARY_DIR}/libs/qbox.build/stampdir
+	CONFIGURE_COMMAND ${CMAKE_SOURCE_DIR}/libs/qbox/configure --disable-werror --disable-pa --disable-linux-aio --disable-rbd  --disable-vnc --disable-sdl --disable-sdl-image --target-list=riscv64-softmmu --qbox --library  ${QBOX_DEBUG_BUILD}  --with-tlm2c=${CMAKE_BINARY_DIR}/libs/tlm2c.build --prefix=${CMAKE_BINARY_DIR}/libs/qbox.build --disable-pie 
+	PREFIX ${CMAKE_BINARY_DIR}/libs/qbox.build
 	BUILD_COMMAND $(MAKE)
 )	
 ExternalProject_Add_Step(qbox force-build
@@ -176,16 +176,20 @@ ExternalProject_Add_Step(qbox force-build
             ALWAYS 1
 )
 add_dependencies(qbox tlm2c)
-link_directories(${CMAKE_SOURCE_DIR}/libs/qbox.build/)
-install(FILES ${CMAKE_SOURCE_DIR}/libs/qbox.build/libqbox-riscv64-softmmu${CMAKE_SHARED_LIBRARY_SUFFIX} DESTINATION lib)
+link_directories(${CMAKE_BINARY_DIR}/libs/qbox.build/)
+install(FILES ${CMAKE_BINARY_DIR}/libs/qbox.build/libqbox-riscv64-softmmu${CMAKE_SHARED_LIBRARY_SUFFIX} DESTINATION lib)
 
 ### Toplevel ###
 add_executable(aarch64_toplevel src/aarch64_toplevel.cpp)
 add_dependencies(aarch64_toplevel
 			  simplecpu
 			  qbox
-			  nvdla
+			#   nvdla
 )
+# install system c library
+get_filename_component(REAL_SYSC_LIB ${SystemC_LIBRARIES} REALPATH)
+install(FILES ${SystemC_LIBRARIES} DESTINATION lib)
+install(FILES ${REAL_SYSC_LIB} DESTINATION lib)
 
 target_link_libraries(aarch64_toplevel  ${SystemC_LIBRARIES}
 				${LUA_LIBRARIES}
@@ -196,17 +200,17 @@ target_link_libraries(aarch64_toplevel  ${SystemC_LIBRARIES}
                 dl 
 				tlm2c
                 log
-                nvdla
+                # nvdla
 )
 
-if(AWS_FPGA_PRESENT)
-    add_dependencies(aarch64_toplevel fpga_sc_wrapper)
-    target_link_libraries(aarch64_toplevel fpga_sc_wrapper)
-    set_target_properties(aarch64_toplevel PROPERTIES COMPILE_FLAGS "-std=c++11 -Wno-deprecated-declarations -DCONFIG_LOGLEVEL=4")
-endif()
+# if(AWS_FPGA_PRESENT)
+#     add_dependencies(aarch64_toplevel fpga_sc_wrapper)
+#     target_link_libraries(aarch64_toplevel fpga_sc_wrapper)
+#     set_target_properties(aarch64_toplevel PROPERTIES COMPILE_FLAGS "-std=c++11 -Wno-deprecated-declarations -DCONFIG_LOGLEVEL=4")
+# endif()
 
-add_dependencies(aarch64_toplevel cosim_sc_wrapper)
-target_link_libraries(aarch64_toplevel cosim_sc_wrapper)
-set_target_properties(aarch64_toplevel PROPERTIES COMPILE_FLAGS "-std=c++11 -Wno-deprecated-declarations -DCONFIG_LOGLEVEL=4")
+# add_dependencies(aarch64_toplevel cosim_sc_wrapper)
+# target_link_libraries(aarch64_toplevel cosim_sc_wrapper)
+# set_target_properties(aarch64_toplevel PROPERTIES COMPILE_FLAGS "-std=c++11 -Wno-deprecated-declarations -DCONFIG_LOGLEVEL=4")
 
 install(TARGETS aarch64_toplevel DESTINATION bin)
