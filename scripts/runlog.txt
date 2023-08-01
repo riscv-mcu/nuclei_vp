@@ -1,0 +1,239 @@
+             SystemC 2.3.0-ASI --- Jul 31 2023 11:17:23
+        Copyright (c) 1996-2012 by all Contributors,
+        ALL RIGHTS RESERVED
+
+No sc_log specified, will use the default setting
+verbosity_level = SC_MEDIUM
+DMI mode enable
+RAM base address: 0x80000000
+bridge: tlm2c_elaborate..
+Initialize system memory using qbox
+
+OpenSBI v1.3
+Build time: 2023-07-31 12:04:21 +0800
+Build compiler: gcc version 10.2.0 (GCC)
+   ____                    _____ ____ _____
+  / __ \                  / ____|  _ \_   _|
+ | |  | |_ __   ___ _ __ | (___ | |_) || |
+ | |  | | '_ \ / _ \ '_ \ \___ \|  _ < | |
+ | |__| | |_) |  __/ | | |____) | |_) || |_
+  \____/| .__/ \___|_| |_|_____/|___/_____|
+        | |
+        |_|
+
+Platform Name             : nuclei,evalsoc
+Platform Features         : medeleg
+Platform HART Count       : 8
+Platform IPI Device       : aclint-mswi
+Platform Timer Device     : aclint-mtimer @ 32768Hz
+Platform Console Device   : nuclei_uart
+Platform HSM Device       : ---
+Platform PMU Device       : ---
+Platform Reboot Device    : ---
+Platform Shutdown Device  : ---
+Platform Suspend Device   : ---
+Platform CPPC Device      : ---
+Firmware Base             : 0x80000000
+Firmware Size             : 264 KB
+Firmware RW Offset        : 0x20000
+Firmware RW Size          : 136 KB
+Firmware Heap Offset      : 0x36000
+Firmware Heap Size        : 48 KB (total), 3 KB (reserved), 9 KB (used), 35 KB (free)
+Firmware Scratch Size     : 4096 B (total), 760 B (used), 3336 B (free)
+Runtime SBI Version       : 1.0
+
+Domain0 Name              : root
+Domain0 Boot HART         : 7
+Domain0 HARTs             : 0*,1*,2*,3*,4*,5*,6*,7*
+Domain0 Region00          : 0x0000000018031000-0x0000000018031fff M: (I,R,W) S/U: ()
+Domain0 Region01          : 0x000000001803c000-0x000000001803cfff M: (I,R,W) S/U: ()
+Domain0 Region02          : 0x0000000018032000-0x0000000018033fff M: (I,R,W) S/U: ()
+Domain0 Region03          : 0x0000000018034000-0x0000000018037fff M: (I,R,W) S/U: ()
+Domain0 Region04          : 0x0000000018038000-0x000000001803bfff M: (I,R,W) S/U: ()
+Domain0 Region05          : 0x0000000080000000-0x000000008001ffff M: (R,X) S/U: ()
+Domain0 Region06          : 0x0000000080000000-0x000000008007ffff M: (R,W) S/U: ()
+Domain0 Region07          : 0x0000000000000000-0xffffffffffffffff M: (R,W,X) S/U: (R,W,X)
+Domain0 Next Address      : 0x0000000080200000
+Domain0 Next Arg1         : 0x0000000088000000
+Domain0 Next Mode         : S-mode
+Domain0 SysReset          : yes
+Domain0 SysSuspend        : yes
+
+Boot HART ID              : 7
+Boot HART Domain          : root
+Boot HART Priv Version    : v1.12
+Boot HART Base ISA        : rv64imafdc
+Boot HART ISA Extensions  : time
+Boot HART PMP Count       : 16
+Boot HART PMP Granularity : 4
+Boot HART PMP Address Bits: 54
+Boot HART MHPM Count      : 29
+Boot HART MIDELEG         : 0x0000000000000222
+Boot HART MEDELEG         : 0x000000000000b109
+
+U-Boot 2023.01-00007-g2ffa69c07f (Jul 31 2023 - 12:03:12 +0800)
+
+CPU:   rv64imafdc
+Model: nuclei,evalsoc
+DRAM:  2 GiB
+Board: Initialized
+Core:  24 devices, 13 uclasses, devicetree: board
+MMC:   Nuclei SPI version 0x0
+spi@10034000:mmc@0: 0
+Loading Environment from nowhere... OK
+In:    serial@10013000
+Out:   serial@10013000
+Err:   serial@10013000
+Net:   No ethernet found.
+Hit any key to stop autoboot:  0
+switch to partitions #0, OK
+mmc0 is current device
+Scanning mmc 0:1...
+Found U-Boot script /boot.scr
+725 bytes read in 52 ms (12.7 KiB/s)
+## Executing script at 80200000
+Boot images located in .
+Loading kernel: ./uImage.lz4
+4072712 bytes read in 35218 ms (112.3 KiB/s)
+Loading ramdisk: ./uInitrd.lz4
+6634787 bytes read in 57155 ms (113.3 KiB/s)
+Loading dtb: ./kernel.dtb
+4677 bytes read in 76 ms (59.6 KiB/s)
+Starts booting from SD
+## Booting kernel from Legacy Image at 81000000 ...
+   Image Name:   Linux
+   Image Type:   RISC-V Linux Kernel Image (lz4 compressed)
+   Data Size:    4072648 Bytes = 3.9 MiB
+   Load Address: 80400000
+   Entry Point:  80400000
+   Verifying Checksum ... OK
+## Loading init Ramdisk from Legacy Image at 88300000 ...
+   Image Name:   Initrd
+   Image Type:   RISC-V Linux RAMDisk Image (lz4 compressed)
+   Data Size:    6634723 Bytes = 6.3 MiB
+   Load Address: 00000000
+   Entry Point:  00000000
+   Verifying Checksum ... OK
+## Flattened Device Tree blob at 88000000
+   Booting using the fdt blob at 0x88000000
+Working FDT set to 88000000
+   Uncompressing Kernel Image
+   Using Device Tree in place at 0000000088000000, end 0000000088004244
+Working FDT set to 88000000
+
+Starting kernel ...
+
+[    0.000000] Linux version 6.1.31+ (hqfang@whml1.corp.nucleisys.com) (riscv-nuclei-linux-gnu-gcc (GCC) 10.2.0, GNU ld (GNU Binutils) 2.36.1) #3 SMP Mon Jul 31 13:02:34 CST 2023
+[    0.000000] OF: fdt: Ignoring memory range 0x80000000 - 0x80400000
+[    0.000000] Machine model: nuclei,evalsoc
+[    0.000000] earlycon: sbi0 at I/O port 0x0 (options '')
+[    0.000000] printk: bootconsole [sbi0] enabled
+[    0.000000] efi: UEFI not found.
+[    0.000000] Zone ranges:
+[    0.000000]   DMA32    [mem 0x0000000080400000-0x00000000fdffffff]
+[    0.000000]   Normal   empty
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x0000000080400000-0x00000000fdffffff]
+[    0.000000] Initmem setup node 0 [mem 0x0000000080400000-0x00000000fdffffff]
+[    0.000000] SBI specification v1.0 detected
+[    0.000000] SBI implementation ID=0x1 Version=0x10003
+[    0.000000] SBI TIME extension detected
+[    0.000000] SBI IPI extension detected
+[    0.000000] SBI RFENCE extension detected
+[    0.000000] SBI HSM extension detected
+[    0.000000] riscv: base ISA extensions acdfim
+[    0.000000] riscv: ELF capabilities acdfim
+[    0.000000] percpu: Embedded 15 pages/cpu s22504 r8192 d30744 u61440
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 508030
+[    0.000000] Kernel command line: earlycon=sbi console=ttyNUC0
+[    0.000000] Dentry cache hash table entries: 262144 (order: 9, 2097152 bytes, linear)
+[    0.000000] Inode-cache hash table entries: 131072 (order: 8, 1048576 bytes, linear)
+[    0.000000] mem auto-init: stack:off, heap alloc:off, heap free:off
+[    0.000000] Memory: 2005628K/2060288K available (4763K kernel code, 4741K rwdata, 2048K rodata, 2123K init, 315K bss, 54660K reserved, 0K cma-reserved)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=8, Nodes=1
+[    0.000000] rcu: Hierarchical RCU implementation.
+[    0.000000] rcu:     RCU restricting CPUs from NR_CPUS=64 to nr_cpu_ids=8.
+[    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 10 jiffies.
+[    0.000000] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=8
+[    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+[    0.000000] riscv-intc: 64 local interrupts mapped
+[    0.000000] plic: interrupt-controller@1c000000: mapped 53 interrupts with 8 handlers for 16 contexts.
+[    0.000000] rcu: srcu_init: Setting srcu_struct sizes based on contention.
+[    0.000000] riscv-timer: riscv_timer_init_dt: Registering clocksource cpuid [0] hartid [7]
+[    0.000000] clocksource: riscv_clocksource: mask: 0xffffffffffffffff max_cycles: 0x1ef4687b1, max_idle_ns: 112843571739654 ns
+[    0.000549] sched_clock: 64 bits at 33kHz, resolution 30517ns, wraps every 70368744171142ns
+[    0.041687] Calibrating delay loop (skipped), value calculated using timer frequency.. 0.06 BogoMIPS (lpj=327)
+[    0.044860] pid_max: default: 32768 minimum: 301
+[    0.061096] Mount-cache hash table entries: 4096 (order: 3, 32768 bytes, linear)
+[    0.062438] Mountpoint-cache hash table entries: 4096 (order: 3, 32768 bytes, linear)
+[    0.234558] riscv: ELF compat mode supported
+[    0.236022] ASID allocator using 16 bits (65536 entries)
+[    0.241271] rcu: Hierarchical SRCU implementation.
+[    0.242187] rcu:     Max phase no-delay instances is 1000.
+[    0.252899] EFI services will not be available.
+[    0.262817] smp: Bringing up secondary CPUs ...
+[    0.401062] smp: Brought up 1 node, 8 CPUs
+[    0.480407] devtmpfs: initialized
+[    0.523468] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.526794] futex hash table entries: 2048 (order: 5, 131072 bytes, linear)
+[    0.532623] pinctrl core: initialized pinctrl subsystem
+[    0.571166] NET: Registered PF_NETLINK/PF_ROUTE protocol family
+[    0.693023] pps_core: LinuxPPS API ver. 1 registered
+[    0.693908] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.695709] PTP clock support registered
+[    0.757690] clocksource: Switched to clocksource riscv_clocksource
+[    0.812927] NET: Registered PF_INET protocol family
+[    0.824249] IP idents hash table entries: 32768 (order: 6, 262144 bytes, linear)
+[    0.845703] tcp_listen_portaddr_hash hash table entries: 1024 (order: 2, 16384 bytes, linear)
+[    0.849304] Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+[    0.850769] TCP established hash table entries: 16384 (order: 5, 131072 bytes, linear)
+[    0.853393] TCP bind hash table entries: 16384 (order: 7, 524288 bytes, linear)
+[    0.855712] TCP: Hash tables configured (established 16384 bind 16384)
+[    0.867248] UDP hash table entries: 1024 (order: 3, 32768 bytes, linear)
+[    0.869689] UDP-Lite hash table entries: 1024 (order: 3, 32768 bytes, linear)
+[    0.878753] NET: Registered PF_UNIX/PF_LOCAL protocol family
+[    0.923278] Trying to unpack rootfs image as initramfs...
+[    0.924896] workingset: timestamp_bits=62 max_order=19 bucket_order=0
+[    0.967590] jffs2: version 2.2. (NAND) © 2001-2006 Red Hat, Inc.
+[    0.977752] JFS: nTxBlock = 8192, nTxLock = 65536
+[    1.028045] jitterentropy: Initialization failed with host not compliant with requirements: 2
+[    1.031005] io scheduler mq-deadline registered
+[    1.032257] io scheduler kyber registered
+[    1.682495] 10013000.serial: ttyNUC0 at MMIO 0x10013000 (irq = 1, base_baud = 3125000) is a Nuclei UART v0
+[    1.691253] printk: console [ttyNUC0] enabled
+[    1.691253] printk: console [ttyNUC0] enabled
+[    1.693511] printk: bootconsole [sbi0] disabled
+[    1.693511] printk: bootconsole [sbi0] disabled
+[    1.750671] Freeing initrd memory: 6472K
+[    1.837615] brd: module loaded
+[    1.891845] loop: module loaded
+[    1.905914] nuclei_spi 10014000.spi: mapped; irq=2, cs=1
+[    1.964813] spi-nor spi0.0: is25wp256 (32768 Kbytes)
+[    2.856689] ftl_cs: FTL header not found.
+[    2.880462] nuclei_spi 10034000.spi: mapped; irq=3, cs=1
+[    2.946075] mmc_spi spi1.0: SD/MMC host mmc0, no DMA, no WP, no poweroff, cd polling
+[    2.967712] NET: Registered PF_INET6 protocol family
+[    3.025421] Segment Routing with IPv6
+[    3.027557] In-situ OAM (IOAM) with IPv6
+[    3.030578] sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+[    3.050720] NET: Registered PF_PACKET protocol family
+[    3.071075] mmc0: host does not support reading read-only switch, assuming write-enable
+[    3.073577] mmc0: new SD card on SPI
+[    3.091339] mmcblk0: mmc0:0000 QEMU! 64.0 MiB
+[    3.191619]  mmcblk0: p1
+[    3.263549] Freeing unused kernel image (initmem) memory: 2120K
+[    3.334045] Run /init as init process
+Starting syslogd: OK
+Starting klogd: OK
+Running sysctl: OK
+Starting mdev... OK
+modprobe: can't change directory to '/lib/modules': No such file or directory
+Saving random seed: [   24.993103] random: dd: uninitialized urandom read (32 bytes read)
+OK
+
+Welcome to Nuclei System Technology
+nucleisys login: root
+Password:
+# uname -a
+Linux nucleisys 6.1.31+ #3 SMP Mon Jul 31 13:02:34 CST 2023 riscv64 GNU/Linux
