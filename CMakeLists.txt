@@ -207,11 +207,11 @@ target_link_libraries(riscv64_toplevel  ${SystemC_LIBRARIES}
 # if(AWS_FPGA_PRESENT)
 #     add_dependencies(riscv64_toplevel fpga_sc_wrapper)
 #     target_link_libraries(riscv64_toplevel fpga_sc_wrapper)
-#     set_target_properties(riscv64_toplevel PROPERTIES COMPILE_FLAGS "-std=c++11 -Wno-deprecated-declarations -DCONFIG_LOGLEVEL=4")
+#     set_target_properties(riscv64_toplevel PROPERTIES COMPILE_FLAGS " -Wno-deprecated-declarations -DCONFIG_LOGLEVEL=4")
 # endif()
 
 # add_dependencies(riscv64_toplevel cosim_sc_wrapper)
 # target_link_libraries(riscv64_toplevel cosim_sc_wrapper)
-# set_target_properties(riscv64_toplevel PROPERTIES COMPILE_FLAGS "-std=c++11 -Wno-deprecated-declarations -DCONFIG_LOGLEVEL=4")
+# set_target_properties(riscv64_toplevel PROPERTIES COMPILE_FLAGS " -Wno-deprecated-declarations -DCONFIG_LOGLEVEL=4")
 
 install(TARGETS riscv64_toplevel DESTINATION bin)

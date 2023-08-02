@@ -73,7 +73,7 @@ else()
 endif()
 
 
-set(COSIM_CFLAGS "-std=c++11")
+set(COSIM_CFLAGS "")
 
 set (INCLUDE_DIRS ${INCLUDE_DIRS} include)
 
