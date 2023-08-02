@@ -34,7 +34,7 @@ if [ -d $VPSRCDIR/libs/systemc ] ; then
         if [ "x$?" == "x0" ] ; then
             echo $systemcver > $syscbuild/STAMP
         else
-            echo "Failed to build systemc library"
+            echo "Failed to build systemc library, please check above console build log"
             exit 1
         fi
         popd
@@ -45,12 +45,14 @@ fi
 
 mkdir -p $BUILDDIR
 pushd $BUILDDIR
+
 if [ ! -f $BUILDDIR/Makefile ] ; then
     echo "Configure Nuclei Virtual Platform..."
     cmake -DCMAKE_INSTALL_PREFIX=install -DSYSTEMC_PREFIX=$syscbuild/install -DCMAKE_BUILD_TYPE=Debug $VPSRCDIR
 else
     echo "Project is already configured!"
 fi
-make -j$JOBS | tee make.log
-make install
+make -j$JOBS 2>&1 | tee $BUILDDIR/make.log
+make install || echo "ERROR: Project build failed, please check the log file $BUILDDIR/make.log"
+
 popd
