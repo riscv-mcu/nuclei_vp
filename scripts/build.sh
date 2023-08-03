@@ -24,7 +24,7 @@ if [ -d $VPSRCDIR/libs/systemc ] ; then
         pushd $syscbuild
         if [ -f $VPSRCDIR/libs/systemc/cmake/INSTALL_USING_CMAKE ] ; then
             echo "SystemC $systemcver configured using cmake"
-            cmake -DCMAKE_INSTALL_PREFIX=$syscbuild/install $VPSRCDIR/libs/systemc/
+            cmake -DCMAKE_CXX_STANDARD=14 -DCMAKE_INSTALL_PREFIX=$syscbuild/install $VPSRCDIR/libs/systemc/
         else
             echo "SystemC $systemcver configured using auto tools"
             $VPSRCDIR/libs/systemc/configure --prefix=$syscbuild/install
