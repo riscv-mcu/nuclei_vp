@@ -167,7 +167,7 @@ ExternalProject_Add(qbox
 	BINARY_DIR ${CMAKE_BINARY_DIR}/libs/qbox.build
 	TMP_DIR ${CMAKE_BINARY_DIR}/libs/qbox.build/tmp
 	STAMP_DIR ${CMAKE_BINARY_DIR}/libs/qbox.build/stampdir
-	CONFIGURE_COMMAND ${CMAKE_SOURCE_DIR}/libs/qbox/configure --disable-werror --disable-pa --disable-linux-aio --disable-rbd  --disable-vnc --disable-sdl --disable-sdl-image --target-list=riscv64-softmmu --qbox --library  ${QBOX_DEBUG_BUILD}  --with-tlm2c=${CMAKE_BINARY_DIR}/libs/tlm2c.build --prefix=${CMAKE_BINARY_DIR}/libs/qbox.build --disable-pie 
+	CONFIGURE_COMMAND ${CMAKE_SOURCE_DIR}/libs/qbox/configure --disable-werror --disable-pa --disable-linux-aio --disable-rbd  --disable-vnc --disable-sdl --disable-sdl-image --target-list=riscv64-softmmu --qbox --library  ${QBOX_DEBUG_BUILD}  --with-tlm2c=${CMAKE_BINARY_DIR}/libs/tlm2c.build --prefix=${CMAKE_BINARY_DIR}/libs/qbox.build --disable-pie
 	PREFIX ${CMAKE_BINARY_DIR}/libs/qbox.build
 	BUILD_COMMAND $(MAKE)
 )
@@ -183,25 +183,27 @@ install(FILES ${CMAKE_BINARY_DIR}/libs/qbox.build/libqbox-riscv64-softmmu${CMAKE
 ### Toplevel ###
 add_executable(riscv64_toplevel src/riscv64_toplevel.cpp)
 add_dependencies(riscv64_toplevel
-			  simplecpu
-			  qbox
-			#   nvdla
+		simplecpu
+		qbox
+		#   nvdla
 )
-# install system c library
-get_filename_component(REAL_SYSC_LIB ${SystemC_LIBRARIES} REALPATH)
-install(FILES ${SystemC_LIBRARIES} DESTINATION lib)
-install(FILES ${REAL_SYSC_LIB} DESTINATION lib)
 
-target_link_libraries(riscv64_toplevel  ${SystemC_LIBRARIES}
-				${LUA_LIBRARIES}
-                qbox-riscv64-softmmu
-				greenreg
-				greenscript
-                simplecpu
-                dl 
-				tlm2c
-                log
-                # nvdla
+# install system c library
+# get all systemc libraries including symbolic links
+file(GLOB SYSC_LIBS "${SystemC_LIBRARIES}*")
+install(FILES ${SYSC_LIBS} DESTINATION lib)
+
+target_link_libraries(riscv64_toplevel
+		${SystemC_LIBRARIES}
+		${LUA_LIBRARIES}
+		qbox-riscv64-softmmu
+		greenreg
+		greenscript
+		simplecpu
+		dl
+		tlm2c
+		log
+		# nvdla
 )
 
 # if(AWS_FPGA_PRESENT)
