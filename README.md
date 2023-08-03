@@ -12,9 +12,11 @@ Git clone the repository and update the submodules.
 After cloning the repository, run the following command to update the submodule:
 
 ```sh
+# NOTE: for internal developer, please use internal git repo url
 git clone https://github.com/riscv-mcu/nuclei_vp
 cd nuclei_vp
 # checkout wip branch or other branch you need
+# this is still under development, so branch is named wip
 git checkout wip
 # make sure this step below executed successfully
 git submodule update --init --recursive
@@ -57,7 +59,7 @@ bash scripts/build.sh vp.build
 
 ~~~shell
 # in docker now
-## build freeloader and qemu disk images using nuclei linux sdk
+## build freeloader and qemu disk images using nuclei linux sdk or use a prebuilt image
 ## see https://github.com/Nuclei-Software/nuclei-linux-sdk/tree/dev_nuclei_6.1_v2#booting-linux-on-nuclei-qemu
 ## simple steps in nuclei-linux-sdk repo is as below
 ## $ make SOC=evalsoc CORE=ux900fd freeloader gendisk
