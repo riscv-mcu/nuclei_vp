@@ -27,7 +27,7 @@ git submodule
 
 ## Build steps
 
-> Not all scripts located in scripts works.
+> **Caution**: Not all scripts located in `scripts/` and `docker/` works.
 
 We are using docker ubuntu 20.04 to build and test this repo.
 
@@ -37,6 +37,7 @@ We are using docker ubuntu 20.04 to build and test this repo.
 
 ~~~shell
 # in host now
+# The docker is a prebuilt one, uploaded to docker hub, see https://hub.docker.com/r/nucleisoftware/ubuntu/tags
 bash scripts/run_docker.sh
 # now in docker
 ~~~
