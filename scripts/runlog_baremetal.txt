@@ -1,0 +1,157 @@
+Using configuration file conf/riscv64_eclic.lua
+
+        SystemC 2.3.2-Accellera --- Aug  3 2023 10:50:01
+        Copyright (c) 1996-2017 by all Contributors,
+        ALL RIGHTS RESERVED
+No sc_log specified, will use the default setting
+verbosity_level = SC_MEDIUM
+DMI mode enable
+RAM base address: 0x80000000
+bridge: tlm2c_elaborate..
+Initialize system memory using qbox
+Nuclei SDK Build Time: Aug  7 2023, 17:59:33
+Download Mode: FLASHXIP
+CPU Frequency 2499952640 Hz
+CPU HartID: 0
+Initialize timer and start timer interrupt periodically
+-------------------
+[IN TIMER INTERRUPT]timer interrupt hit 0 times
+[IN TIMER INTERRUPT]trigger software interrupt
+[IN TIMER INTERRUPT]software interrupt will run when timer interrupt finished
+[IN TIMER INTERRUPT]timer interrupt end
+[IN SOFTWARE INTERRUPT]software interrupt hit 0 times
+[IN SOFTWARE INTERRUPT]software interrupt end
+-------------------
+[IN TIMER INTERRUPT]timer interrupt hit 1 times
+[IN TIMER INTERRUPT]trigger software interrupt
+[IN TIMER INTERRUPT]software interrupt will run when timer interrupt finished
+[IN TIMER INTERRUPT]timer interrupt end
+[IN SOFTWARE INTERRUPT]software interrupt hit 1 times
+[IN SOFTWARE INTERRUPT]software interrupt end
+-------------------
+[IN TIMER INTERRUPT]timer interrupt hit 2 times
+[IN TIMER INTERRUPT]trigger software interrupt
+[IN TIMER INTERRUPT]software interrupt will run when timer interrupt finished
+[IN TIMER INTERRUPT]timer interrupt end
+[IN SOFTWARE INTERRUPT]software interrupt hit 2 times
+[IN SOFTWARE INTERRUPT]software interrupt end
+-------------------
+[IN TIMER INTERRUPT]timer interrupt hit 3 times
+[IN TIMER INTERRUPT]trigger software interrupt
+[IN TIMER INTERRUPT]software interrupt will run when timer interrupt finished
+[IN TIMER INTERRUPT]timer interrupt end
+[IN SOFTWARE INTERRUPT]software interrupt hit 3 times
+[IN SOFTWARE INTERRUPT]software interrupt end
+-------------------
+[IN TIMER INTERRUPT]timer interrupt hit 4 times
+[IN TIMER INTERRUPT]trigger software interrupt
+[IN TIMER INTERRUPT]software interrupt will run when timer interrupt finished
+[IN TIMER INTERRUPT]timer interrupt end
+[IN SOFTWARE INTERRUPT]software interrupt hit 4 times
+[IN SOFTWARE INTERRUPT]software interrupt end
+-------------------
+[IN TIMER INTERRUPT]timer interrupt hit 5 times
+[IN TIMER INTERRUPT]trigger software interrupt
+[IN TIMER INTERRUPT]software interrupt will run when timer interrupt finished
+[IN TIMER INTERRUPT]timer interrupt end
+[IN SOFTWARE INTERRUPT]software interrupt hit 5 times
+[IN SOFTWARE INTERRUPT]software interrupt end
+-------------------
+[IN TIMER INTERRUPT]timer interrupt hit 6 times
+[IN TIMER INTERRUPT]trigger software interrupt
+[IN TIMER INTERRUPT]software interrupt will run when timer interrupt finished
+[IN TIMER INTERRUPT]timer interrupt end
+[IN SOFTWARE INTERRUPT]software interrupt hit 6 times
+[IN SOFTWARE INTERRUPT]software interrupt end
+-------------------
+[IN TIMER INTERRUPT]timer interrupt hit 7 times
+[IN TIMER INTERRUPT]trigger software interrupt
+[IN TIMER INTERRUPT]software interrupt will run when timer interrupt finished
+[IN TIMER INTERRUPT]timer interrupt end
+[IN SOFTWARE INTERRUPT]software interrupt hit 7 times
+[IN SOFTWARE INTERRUPT]software interrupt end
+-------------------
+[IN TIMER INTERRUPT]timer interrupt hit 8 times
+[IN TIMER INTERRUPT]trigger software interrupt
+[IN TIMER INTERRUPT]software interrupt will run when timer interrupt finished
+[IN TIMER INTERRUPT]timer interrupt end
+[IN SOFTWARE INTERRUPT]software interrupt hit 8 times
+[IN SOFTWARE INTERRUPT]software interrupt end
+-------------------
+[IN TIMER INTERRUPT]timer interrupt hit 9 times
+[IN TIMER INTERRUPT]trigger software interrupt
+[IN TIMER INTERRUPT]software interrupt will run when timer interrupt finished
+[IN TIMER INTERRUPT]timer interrupt end
+[IN SOFTWARE INTERRUPT]software interrupt hit 9 times
+[IN SOFTWARE INTERRUPT]software interrupt end
+-------------------
+[IN TIMER INTERRUPT]timer interrupt hit 10 times
+[IN TIMER INTERRUPT]trigger software interrupt
+[IN TIMER INTERRUPT]software interrupt will run when timer interrupt finished
+[IN TIMER INTERRUPT]timer interrupt end
+[IN SOFTWARE INTERRUPT]software interrupt hit 10 times
+[IN SOFTWARE INTERRUPT]software interrupt end
+-------------------
+[IN TIMER INTERRUPT]timer interrupt hit 11 times
+[IN TIMER INTERRUPT]trigger software interrupt
+[IN TIMER INTERRUPT]software interrupt will run when timer interrupt finished
+[IN TIMER INTERRUPT]timer interrupt end
+[IN SOFTWARE INTERRUPT]software interrupt hit 11 times
+[IN SOFTWARE INTERRUPT]software interrupt end
+-------------------
+[IN TIMER INTERRUPT]timer interrupt hit 12 times
+[IN TIMER INTERRUPT]trigger software interrupt
+[IN TIMER INTERRUPT]software interrupt will run when timer interrupt finished
+[IN TIMER INTERRUPT]timer interrupt end
+[IN SOFTWARE INTERRUPT]software interrupt hit 12 times
+[IN SOFTWARE INTERRUPT]software interrupt end
+-------------------
+[IN TIMER INTERRUPT]timer interrupt hit 13 times
+[IN TIMER INTERRUPT]trigger software interrupt
+[IN TIMER INTERRUPT]software interrupt will run when timer interrupt finished
+[IN TIMER INTERRUPT]timer interrupt end
+[IN SOFTWARE INTERRUPT]software interrupt hit 13 times
+[IN SOFTWARE INTERRUPT]software interrupt end
+-------------------
+[IN TIMER INTERRUPT]timer interrupt hit 14 times
+[IN TIMER INTERRUPT]trigger software interrupt
+[IN TIMER INTERRUPT]software interrupt will run when timer interrupt finished
+[IN TIMER INTERRUPT]timer interrupt end
+[IN SOFTWARE INTERRUPT]software interrupt hit 14 times
+[IN SOFTWARE INTERRUPT]software interrupt end
+-------------------
+[IN TIMER INTERRUPT]timer interrupt hit 15 times
+[IN TIMER INTERRUPT]trigger software interrupt
+[IN TIMER INTERRUPT]software interrupt will run when timer interrupt finished
+[IN TIMER INTERRUPT]timer interrupt end
+[IN SOFTWARE INTERRUPT]software interrupt hit 15 times
+[IN SOFTWARE INTERRUPT]software interrupt end
+-------------------
+[IN TIMER INTERRUPT]timer interrupt hit 16 times
+[IN TIMER INTERRUPT]trigger software interrupt
+[IN TIMER INTERRUPT]software interrupt will run when timer interrupt finished
+[IN TIMER INTERRUPT]timer interrupt end
+[IN SOFTWARE INTERRUPT]software interrupt hit 16 times
+[IN SOFTWARE INTERRUPT]software interrupt end
+-------------------
+[IN TIMER INTERRUPT]timer interrupt hit 17 times
+[IN TIMER INTERRUPT]trigger software interrupt
+[IN TIMER INTERRUPT]software interrupt will run when timer interrupt finished
+[IN TIMER INTERRUPT]timer interrupt end
+[IN SOFTWARE INTERRUPT]software interrupt hit 17 times
+[IN SOFTWARE INTERRUPT]software interrupt end
+-------------------
+[IN TIMER INTERRUPT]timer interrupt hit 18 times
+[IN TIMER INTERRUPT]trigger software interrupt
+[IN TIMER INTERRUPT]software interrupt will run when timer interrupt finished
+[IN TIMER INTERRUPT]timer interrupt end
+[IN SOFTWARE INTERRUPT]software interrupt hit 18 times
+[IN SOFTWARE INTERRUPT]software interrupt end
+-------------------
+[IN TIMER INTERRUPT]timer interrupt hit 19 times
+[IN TIMER INTERRUPT]trigger software interrupt
+[IN TIMER INTERRUPT]software interrupt will run when timer interrupt finished
+[IN TIMER INTERRUPT]timer interrupt end
+[IN SOFTWARE INTERRUPT]software interrupt hit 19 times
+[IN SOFTWARE INTERRUPT]software interrupt end
+ECLIC Demo finished sucessfully in 20 loops

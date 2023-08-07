@@ -73,6 +73,21 @@ bash scripts/run.sh vp.build
 
 Sample output can be found in [runlog.txt](scripts/runlog.txt)
 
+If you want to test baremetal case, please use command below:
+
+~~~shell
+# in docker now
+## build baremetal case for nx900fd using nuclei sdk
+## see https://doc.nucleisys.com/nuclei_sdk/design/app.html
+## using SOC=evalsoc CORE=nx900fd
+## extract it to <nuclei_vp>/images folder
+# run this virtual platform located in vp.build
+# default elf is images/baremetal.elf
+bash scripts/run.sh vp.build conf/riscv64_bare.lua
+~~~
+
+Sample output can be found in [runlog_baremetal.txt](scripts/runlog_baremetal.txt)
+
 ## Licence
 
 See [License](License).
