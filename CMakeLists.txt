@@ -167,7 +167,7 @@ ExternalProject_Add(qbox
 	BINARY_DIR ${CMAKE_BINARY_DIR}/libs/qbox.build
 	TMP_DIR ${CMAKE_BINARY_DIR}/libs/qbox.build/tmp
 	STAMP_DIR ${CMAKE_BINARY_DIR}/libs/qbox.build/stampdir
-	CONFIGURE_COMMAND ${CMAKE_SOURCE_DIR}/libs/qbox/configure --disable-werror --disable-pa --disable-linux-aio --disable-rbd  --disable-vnc --disable-sdl --disable-sdl-image --target-list=riscv64-softmmu --qbox --library  ${QBOX_DEBUG_BUILD}  --with-tlm2c=${CMAKE_BINARY_DIR}/libs/tlm2c.build --prefix=${CMAKE_BINARY_DIR}/libs/qbox.build --disable-pie
+	CONFIGURE_COMMAND ${CMAKE_SOURCE_DIR}/libs/qbox/configure --disable-werror --disable-pa --disable-linux-aio --disable-rbd  --disable-vnc --disable-sdl --disable-sdl-image --target-list=riscv64-softmmu,riscv32-softmmu --qbox --library ${QBOX_DEBUG_BUILD} --with-tlm2c=${CMAKE_BINARY_DIR}/libs/tlm2c.build --prefix=${CMAKE_BINARY_DIR}/libs/qbox.build --disable-pie
 	PREFIX ${CMAKE_BINARY_DIR}/libs/qbox.build
 	BUILD_COMMAND $(MAKE)
 )
@@ -179,6 +179,7 @@ ExternalProject_Add_Step(qbox force-build
 add_dependencies(qbox tlm2c)
 link_directories(${CMAKE_BINARY_DIR}/libs/qbox.build/)
 install(FILES ${CMAKE_BINARY_DIR}/libs/qbox.build/libqbox-riscv64-softmmu${CMAKE_SHARED_LIBRARY_SUFFIX} DESTINATION lib)
+install(FILES ${CMAKE_BINARY_DIR}/libs/qbox.build/libqbox-riscv32-softmmu${CMAKE_SHARED_LIBRARY_SUFFIX} DESTINATION lib)
 
 ### Toplevel ###
 add_executable(riscv64_toplevel src/riscv64_toplevel.cpp)
