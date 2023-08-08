@@ -1,6 +1,6 @@
 CPU = {
     library = "libqbox-riscv64-softmmu.so",
-    extra_arguments = "-machine nuclei_evalsoc,download=flashxip -cpu nuclei-nx900fd -nographic -smp 1 -m 1024m  -kernel images/baremetal.elf -nographic -nodefaults -serial stdio"
+    extra_arguments = "-machine nuclei_evalsoc,download=flashxip -cpu nuclei-nx900fd -nographic -smp 1 -m 1024m  -kernel images/rv64_bare.elf -nographic -nodefaults -serial stdio"
 }
 
 ram = {
