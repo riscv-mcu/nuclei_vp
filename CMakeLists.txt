@@ -182,8 +182,8 @@ install(FILES ${CMAKE_BINARY_DIR}/libs/qbox.build/libqbox-riscv64-softmmu${CMAKE
 install(FILES ${CMAKE_BINARY_DIR}/libs/qbox.build/libqbox-riscv32-softmmu${CMAKE_SHARED_LIBRARY_SUFFIX} DESTINATION lib)
 
 ### Toplevel ###
-add_executable(riscv64_toplevel src/riscv64_toplevel.cpp)
-add_dependencies(riscv64_toplevel
+add_executable(riscv_toplevel src/riscv_toplevel.cpp)
+add_dependencies(riscv_toplevel
 		simplecpu
 		qbox
 		#   nvdla
@@ -194,7 +194,7 @@ add_dependencies(riscv64_toplevel
 file(GLOB SYSC_LIBS "${SystemC_LIBRARIES}*")
 install(FILES ${SYSC_LIBS} DESTINATION lib)
 
-target_link_libraries(riscv64_toplevel
+target_link_libraries(riscv_toplevel
 		${SystemC_LIBRARIES}
 		${LUA_LIBRARIES}
 		qbox-riscv64-softmmu
@@ -208,13 +208,13 @@ target_link_libraries(riscv64_toplevel
 )
 
 # if(AWS_FPGA_PRESENT)
-#     add_dependencies(riscv64_toplevel fpga_sc_wrapper)
-#     target_link_libraries(riscv64_toplevel fpga_sc_wrapper)
-#     set_target_properties(riscv64_toplevel PROPERTIES COMPILE_FLAGS " -Wno-deprecated-declarations -DCONFIG_LOGLEVEL=4")
+#     add_dependencies(riscv_toplevel fpga_sc_wrapper)
+#     target_link_libraries(riscv_toplevel fpga_sc_wrapper)
+#     set_target_properties(riscv_toplevel PROPERTIES COMPILE_FLAGS " -Wno-deprecated-declarations -DCONFIG_LOGLEVEL=4")
 # endif()
 
-# add_dependencies(riscv64_toplevel cosim_sc_wrapper)
-# target_link_libraries(riscv64_toplevel cosim_sc_wrapper)
-# set_target_properties(riscv64_toplevel PROPERTIES COMPILE_FLAGS " -Wno-deprecated-declarations -DCONFIG_LOGLEVEL=4")
+# add_dependencies(riscv_toplevel cosim_sc_wrapper)
+# target_link_libraries(riscv_toplevel cosim_sc_wrapper)
+# set_target_properties(riscv_toplevel PROPERTIES COMPILE_FLAGS " -Wno-deprecated-declarations -DCONFIG_LOGLEVEL=4")
 
-install(TARGETS riscv64_toplevel DESTINATION bin)
+install(TARGETS riscv_toplevel DESTINATION bin)
