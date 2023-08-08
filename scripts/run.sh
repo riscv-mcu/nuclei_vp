@@ -11,4 +11,4 @@ if [ ! -f $CONF ] ; then
     exit 1
 fi
 echo "Using configuration file $CONF"
-./$BUILDDIR/install/bin/riscv64_toplevel -c $CONF
+./$BUILDDIR/install/bin/riscv_toplevel -c $CONF
