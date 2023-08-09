@@ -1,4 +1,4 @@
-Using configuration file conf/riscv64_eclic.lua
+Using configuration file conf/riscv64_bare.lua
 
         SystemC 2.3.2-Accellera --- Aug  3 2023 10:50:01
         Copyright (c) 1996-2017 by all Contributors,
